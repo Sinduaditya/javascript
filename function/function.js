@@ -1,19 +1,23 @@
 // name = "Sindu";
 
-// function greeting() {
-//   console.log(`Good Morning ${name}`);
-// }
+// function declaration
+function sayHello(greet) {
+    console.log(`${greet}!`);
+}
 
-// greeting();
+// function expression
+const sayName = function(name) {
+    console.log(`Nama saya ${name}`)
+}
 
 function greeting(name, language) {
-  if (language === "English") {
-    console.log(`Good Morning ${name}!`);
-  } else if (language === "French") {
-    console.log(`Bonjour ${name}!`);
-  } else {
-    console.log(`Selamat Pagi ${name}!`);
-  }
+    if (language === "English") {
+        console.log(`Good Morning ${name}!`);
+    } else if (language === "French") {
+        console.log(`Bonjour ${name}!`);
+    } else {
+        console.log(`Selamat Pagi ${name}!`);
+    }
 }
 
 // function dapat menghasilkan output atau mengembalikan output
@@ -31,13 +35,13 @@ console.log(greetingResult);
 
 // - EXPRESSION FUNCTION -
 function expression(name, language) {
-  if (language === "English") {
-    console.log("Good Morning" + name + "!");
-  } else if (language === "French") {
-    console.log("Bonjour" + name + "!");
-  } else {
-    console.log("Selamat Pagi" + name + "!");
-  }
+    if (language === "English") {
+        console.log("Good Morning" + name + "!");
+    } else if (language === "French") {
+        console.log("Bonjour" + name + "!");
+    } else {
+        console.log("Selamat Pagi" + name + "!");
+    }
 }
 
 console.log(expression("Rasyid", "English"));
