@@ -58,4 +58,81 @@ Contoh penggunaannya misalkan ketika kita ingin menjumlahkan total nilai siswa #
 const totalNilai = students.reduce((acc, student) => acc + student.score, 0);
 console.log(totalNilai);
 
+
 // === ARRAY SOME
+/*
+array.some() merupakan fungsi bawaan dari array yang cukup sering digunakan. Fungsi ini akan menghasilkan nilai boolean
+Nilai yang dihasilkan didasarkan pada pernyataan apakah ada setidaknya satu dari deretan nilai dalam array tersebut lolos berdasarkan kriteria yang kita tuliskan dalam callback function.
+
+Contoh penggunaannya misalkan kita ingin mengetahui apakah dalam deretan angka terdapat angka genap
+#contoh 1
+*/
+
+const array = [1, 2, 3, 4, 5];
+const even = array.some(element => element % 2 === 0);
+console.log(even);
+
+
+// ==== ARRAY FIND ====
+/*Mirip dengan array.some(), array.find() sesuai namanya digunakan untuk mencari apakah di dalam deretan nilai terdapat nilai yang sesuai dengan kriteria yang kita definisikan pada callback function. 
+
+Yang membedakan array.find() dengan array.some(), find akan menghasilkan satu nilai dari elemen yang pertama kali ditemukan berdasarkan kriteria tertentu dan akan menghasilkan nilai undefine bila tidak ada kriteria yang terpenuhi pada item array.*/
+
+const findSindu = students.find(student => student.name === 'Sindu');
+console.log(findSindu);
+
+// ==== ARRAY SORT
+/*array.sort() merupakan fungsi bawaan dari array yang berguna untuk melakukan pengurutan nilai dari sebuah deretan nilai. Secara default, fungsi sort akan mengubah semua nilai dalam deretan menjadi bentuk string dan mengurutkannya secara ascending.*/
+const array1 = [1, 30, 4, 1000];
+
+const compareNumber = (a, b) => {
+    return a - b;
+};
+const sorting = array1.sort(compareNumber);
+console.log(sorting);
+
+/**
+output
+[ 1, 4, 30, 1000 ]
+**/
+
+// ===== ARRAY EVERY
+/*
+array.every() merupakan fungsi bawaan dari array yang digunakan untuk mengecheck apakah semua nilai dari sebuah array sesuai dengan kriteria yang didefinisikan. Kembalian dari array.every() adalah nilai Boolean.*/
+const scores = [70, 85, 90];
+const minimumScore = 65;
+
+const examPased = scores.every(score => score >= minimumScore);
+console.log(examPased); //true
+
+
+// ==== ARRAY FOREACH
+/*Array forEach merupakan fungsi bawaan dari array yang berfungsi untuk memanggil fungsi callback pada setiap iterasi index array. Berbeda dari fungsi array lain yang sudah kita bahas, fungsi ini tidak mengembalikan nilai apa pun. Jadi fungsi ini secara harfiah hanya berfungsi untuk memanggil fungsi callback-nya saja, tak lebih dari itu.
+Melalui fungsi ini, Anda dapat mengubah sintaks perulangan berdasarkan jumlah array secara imperatif menjadi deklaratif.*/
+
+const names = ['Sindu', 'Aditya', 'Janadi'];
+// IMPERATIF
+for (let i = 0; i < names.length; i++) {
+    console.log(`Hello ${names[i]}!`);
+}
+
+// DEKLARATIF
+names.forEach((name) => {
+    console.log(`Hello ${name}!`);
+});
+
+
+// INFO
+/*Namun, ketahuilah bahwa ketika menggunakan forEach, kita tidak bisa menggunakan operator break atau continue pada proses perulangan (Anda bisa melakukannya pada perulangan for). Hal ini juga berlaku ketika pada fungsi map dan filter*/
+const names = ['Harry', 'Ron', 'Jeff', 'Thomas'];
+
+for (let i = 0; i < names.length; i++) {
+    if (names[i] === 'Jeff') continue; // Bisa!
+
+    console.log(`Hello, ${names[i]}!`);
+}
+
+names.forEach((name) => {
+    if (name === 'Jeff') continue; // Tidak Bisa!
+    console.log(`Hello, ${name}`);
+});
