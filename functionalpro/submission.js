@@ -20,5 +20,6 @@ const books = [
     { title: 'I Can Make You Thin', author: 'Paul McKenna', sales: 905086 },
     { title: 'Harry Potter and the Deathly Hallows', author: 'J.K Rowling', sales: 4475152 },
 ];
-
+var greatAuthors = books.filter((book) => book.sales > 1000000).map((book) => `${book.author} adalah penulis buku ${book.title} yang sangat hebat!`);
+console.log(greatAuthors);
 // Tulis kode di bawah ini
